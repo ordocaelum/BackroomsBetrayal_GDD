@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backrooms: Betrayal — Game Design Document</title>
+  <meta name="description" content="Official Game Design Document for Backrooms: Betrayal — a cooperative liminal horror game about maintaining reality within unstable Backrooms sectors." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav>
+    <div class="container nav-inner">
+      <span class="nav-brand">Backrooms: Betrayal</span>
+      <ul class="nav-links">
+        <li><a href="#loop">Core Loop</a></li>
+        <li><a href="#pillars">Pillars</a></li>
+        <li><a href="#systems">Systems</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#visual">Visual</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+      </ul>
+      <div class="nav-stability">
+        <span>Sector Stability</span>
+        <div class="stability-bar">
+          <div class="stability-fill"></div>
+        </div>
+        <span>68%</span>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="container hero-content">
+
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="section-label">Game Design Document — v0.4 Internal</span>
+      </div>
+
+      <h1 class="hero-title">Backrooms:<br>Betrayal</h1>
+      <p class="hero-subtitle">Order Against Entropy&nbsp;&nbsp;·&nbsp;&nbsp;Cooperation Under Suspicion</p>
+
+      <div class="hero-concept">
+        <p>
+          A cooperative multiplayer liminal horror experience centred on maintaining reality within
+          unstable Backrooms sectors. Players explore, stabilize, and survive — all while questioning
+          whether the collapse surrounding them is environmental, accidental, or deliberate.
+        </p>
+        <p>
+          The environment is not backdrop. The environment is the antagonist.
+          Instability spreads, geometry shifts, entities manifest from entropy itself.
+          The only defence is coordination — and the only threat may be each other.
+        </p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">6</span>
+          <span class="hero-stat-label">Core Pillars</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">7</span>
+          <span class="hero-stat-label">Loop Stages</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">6</span>
+          <span class="hero-stat-label">Dev Phases</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">Coop</span>
+          <span class="hero-stat-label">Game Mode</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">Liminal</span>
+          <span class="hero-stat-label">Horror Genre</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 3v10M4 9l4 4 4-4"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CORE GAME LOOP
+  ═══════════════════════════════════════════ -->
+  <section id="loop">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 01 — Core Game Loop</span>
+        <h2>The Cycle of Collapse</h2>
+        <p>
+          Backrooms: Betrayal is not a game about surviving a monster. It is a game about
+          surviving a deteriorating reality. The loop below is not a sequence of discrete
+          mechanics — it is a continuous, overlapping pressure system. Players do not complete
+          the loop once. They repeat it, under increasing entropy, with dwindling certainty
+          about who they can trust.
+        </p>
+      </div>
+
+      <!-- ── Diagram A: Core Game Loop Flowchart ── -->
+      <div class="loop-diagram reveal">
+
+        <div class="loop-step step-explore">
+          <div class="loop-step-number">01</div>
+          <div class="loop-step-body">
+            <h3>Explore</h3>
+            <p>Players move through large, procedurally-flavoured liminal spaces searching for stabilization
+              objectives, generators, reality anchors, resources, and extraction routes. The environment is
+              already shifting. Nothing is entirely where it should be.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-detect">
+          <div class="loop-step-number">02</div>
+          <div class="loop-step-body">
+            <h3>Detect Instability</h3>
+            <p>Players learn to read environmental signals: flickering fluorescent lights, spreading grime,
+              objects out of place, asymmetric room arrangements, abnormal audio. Every environmental cue is
+              a data point. Instability has causes — and causes have authors.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-stabilize">
+          <div class="loop-step-number">03</div>
+          <div class="loop-step-body">
+            <h3>Stabilize</h3>
+            <p>Players perform tactile maintenance tasks — calibrating generators, restoring room symmetry,
+              carrying reality anchors, reconnecting severed cables, resealing spreading anomalies. Tasks are
+              short, physical, and deliberate. Stabilization is gameplay, not busywork. Every corrected sector
+              buys time.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-safety">
+          <div class="loop-step-number">04</div>
+          <div class="loop-step-body">
+            <h3>Temporary Safety</h3>
+            <p>Stabilized sectors become briefly navigable: lighting restores, geometry corrects, entity
+              pressure decreases. Objectives become accessible. Players feel, momentarily, that the environment
+              is cooperating. This feeling does not last. But its memory makes the next collapse more dreadful.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-escalation">
+          <div class="loop-step-number">05</div>
+          <div class="loop-step-body">
+            <h3>Escalation</h3>
+            <p>Entropy is relentless. Sectors begin degrading again. The rate of collapse accelerates as the
+              session progresses. New failures appear faster than players can address them. Resources thin.
+              Tasks become more complex. The environment stops feeling like a place and starts feeling like an
+              organism fighting back.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-distrust">
+          <div class="loop-step-number">06</div>
+          <div class="loop-step-body">
+            <h3>Distrust</h3>
+            <p>When failures accumulate faster than the environment alone can explain, players begin watching
+              each other. Did the generator go offline on its own? Did someone disconnect it? Was that object
+              moved by instability, or by a teammate? Plausible deniability is the core social mechanic. There
+              are no accusation prompts. Suspicion is emergent.</p>
+          </div>
+        </div>
+
+        <div class="loop-connector">
+          <div class="loop-connector-line"></div>
+          <div class="loop-connector-arrow"></div>
+        </div>
+
+        <div class="loop-step step-escape">
+          <div class="loop-step-number">07</div>
+          <div class="loop-step-body">
+            <h3>Escape or Descend Deeper</h3>
+            <p>Players face a binary: extract through a stabilized exit corridor, or descend further into a more
+              unstable sector for higher rewards and escalating danger. Both paths carry risk. Extraction requires
+              completing specific prerequisites under environmental pressure. Descent means leaving stability
+              behind entirely.</p>
+          </div>
+        </div>
+
+        <div class="loop-cycle-badge">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 1a6 6 0 0 1 5.83 4.5M13 1v4H9M7 13a6 6 0 0 1-5.83-4.5M1 13V9h4"/>
+          </svg>
+          Loop repeats — entropy never resets fully
+        </div>
+
+      </div>
+
+      <!-- ── Diagram B: Entropy Pressure Model ── -->
+      <div class="entropy-diagram reveal" style="max-width: 720px; margin: 3rem auto;">
+        <div class="entropy-title">Diagram B — Entropy Pressure Model (Mid-Session State)</div>
+        <div class="entropy-bars">
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Sector Instability</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:72%; background: linear-gradient(90deg, #c94040, #f0a030);"></div>
+            </div>
+            <span class="entropy-row-pct">72%</span>
+          </div>
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Entity Aggression</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:60%; background: linear-gradient(90deg, #8b2020, #c94040);"></div>
+            </div>
+            <span class="entropy-row-pct">60%</span>
+          </div>
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Player Sanity</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:44%; background: linear-gradient(90deg, #30b8b0, #4ab870);"></div>
+            </div>
+            <span class="entropy-row-pct">44%</span>
+          </div>
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Team Trust</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:38%; background: linear-gradient(90deg, #e6be50, #f0a030);"></div>
+            </div>
+            <span class="entropy-row-pct">38%</span>
+          </div>
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Navigation Reliability</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:30%; background: linear-gradient(90deg, #30b8b0, #2090a0);"></div>
+            </div>
+            <span class="entropy-row-pct">30%</span>
+          </div>
+
+          <div class="entropy-row">
+            <span class="entropy-row-label">Environmental Clarity</span>
+            <div class="entropy-row-bar">
+              <div class="entropy-row-fill" style="width:25%; background: linear-gradient(90deg, #4ab870, #30b8b0);"></div>
+            </div>
+            <span class="entropy-row-pct">25%</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       GAMEPLAY PILLARS
+  ═══════════════════════════════════════════ -->
+  <section id="pillars">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 02 — Gameplay Pillars</span>
+        <h2>Five Forces in Tension</h2>
+        <p>
+          Each pillar is a pressure system that operates simultaneously. No single pillar dominates.
+          The game is defined by the friction between them.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(48,184,176,0.1);">🧭</div>
+          <h3>Exploration</h3>
+          <p>Players navigate large liminal environments searching for objectives, exits, and resources.
+            Exploration is never casual — the environment actively changes. Familiar hallways shift.
+            Previously safe areas degrade. Every journey has a time cost measured in entropy.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">isolating</span>
+            <span class="pillar-tag">atmospheric</span>
+            <span class="pillar-tag">unpredictable</span>
+          </div>
+        </div>
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(230,190,80,0.1);">⚙️</div>
+          <h3>Environmental Stabilization</h3>
+          <p>Maintenance tasks are the primary form of player agency. They are short, tactile, and visually
+            satisfying. The goal is not cleanliness — the goal is reality integrity. Players who understand this
+            distinction will survive longer. Players who treat it as busywork will collapse the sector.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">tactile</span>
+            <span class="pillar-tag">purposeful</span>
+            <span class="pillar-tag">collaborative</span>
+          </div>
+        </div>
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(240,160,48,0.1);">🌀</div>
+          <h3>Escalating Instability</h3>
+          <p>The environment degrades continuously. Flickering lights, spreading stains, geometry distortion,
+            missing objects — these are not set dressing. They are mechanical consequences of entropy values
+            exceeding thresholds. The game world communicates its own health state in readable, atmospheric ways.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">relentless</span>
+            <span class="pillar-tag">readable</span>
+            <span class="pillar-tag">atmospheric</span>
+          </div>
+        </div>
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(201,64,64,0.1);">👁️</div>
+          <h3>Social Paranoia &amp; Betrayal</h3>
+          <p>Players may intentionally or accidentally destabilize sectors. The design goal is plausible
+            deniability: every failure could have an innocent explanation. Players should question each other
+            without being prompted to. Suspicion is emergent, not systemic. There is no accusation UI. The
+            environment is the alibi.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">emergent</span>
+            <span class="pillar-tag">deniable</span>
+            <span class="pillar-tag">psychological</span>
+          </div>
+        </div>
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(160,152,128,0.08);">⚡</div>
+          <h3>Entity Pressure</h3>
+          <p>Entities are not independent threat actors — they are symptoms of instability. The more a sector
+            degrades, the more frequently and aggressively entities manifest. They do not patrol or hunt
+            traditionally. They emerge from environmental breakdown. Stabilizing the environment is the only
+            way to suppress entity activity.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">environmental</span>
+            <span class="pillar-tag">reactive</span>
+            <span class="pillar-tag">systemic</span>
+          </div>
+        </div>
+
+        <div class="pillar-card reveal">
+          <div class="pillar-icon" style="background:rgba(230,190,80,0.06);">🔮</div>
+          <h3>The Tertium Quid</h3>
+          <p>Not simply another entity. The Tertium Quid is a possible reality immune system — a manifestation
+            of structural imbalance, or a maintenance intelligence correcting excessive entropy. It becomes
+            more active as instability increases. Its agenda may not be hostile. Or it may be precisely hostile
+            enough to make the distinction meaningless.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">enigmatic</span>
+            <span class="pillar-tag">reactive</span>
+            <span class="pillar-tag">escalating</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SYSTEM INTERACTIONS
+  ═══════════════════════════════════════════ -->
+  <section id="systems">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 03 — System Interactions</span>
+        <h2>Four Systems, One Pressure</h2>
+        <p>
+          The four foundation systems feed each other. Entropy affects sanity. Sanity affects task
+          performance. Task failure affects entropy. Replication ensures every system state is shared
+          across all players in real time. No system operates in isolation.
+        </p>
+      </div>
+
+      <div class="systems-layout">
+
+        <div class="system-node sn-sanity reveal">
+          <h3>Sanity Mechanics</h3>
+          <p>Player sanity degrades in high-entropy environments and recovers in stabilized sectors.
+            Low sanity introduces unreliable perceptions — false entity sounds, hallucinated objects,
+            distorted spatial information. Players must weigh task efficiency against their own
+            psychological stability.</p>
+          <div class="status-line">
+            <div class="status-dot status-done"></div>
+            <span class="tag tag-done">Done</span>
+            <span class="system-note">Needs balancing pass in Phase 6</span>
+          </div>
+        </div>
+
+        <div class="system-node sn-entropy reveal">
+          <h3>Entropy / Instability Engine</h3>
+          <p>A sector-level value that tracks environmental health. It rises continuously, faster in
+            the presence of uncorrected anomalies, and drops when stabilization tasks complete successfully.
+            Entropy crossing defined thresholds triggers environmental state transitions: lighting changes,
+            geometry corruption, entity spawning rules, and audio degradation.</p>
+          <div class="status-line">
+            <div class="status-dot status-active"></div>
+            <span class="tag tag-active">Next Up</span>
+            <span class="system-note">Phase 2 — core development target</span>
+          </div>
+        </div>
+
+        <div class="system-node sn-task reveal">
+          <h3>Task System</h3>
+          <p>A simple, framework-based objective system driving player interaction with the environment.
+            Tasks are currently functional and support the stabilization loop. Future iterations will
+            expand task variety, add multi-stage sequences, and introduce sabotage-adjacent interactions
+            within the existing framework.</p>
+          <div class="status-line">
+            <div class="status-dot status-done"></div>
+            <span class="tag tag-done">Done</span>
+            <span class="system-note">Framework complete — expansion planned</span>
+          </div>
+        </div>
+
+        <div class="system-node sn-replic reveal">
+          <h3>Replication &amp; Multiplayer Sync</h3>
+          <p>Core multiplayer state replication is operational. Environmental state, task progress, player
+            positions, and sanity values are synchronised in real time. The replication foundation is
+            sufficient to support all planned Phase 2–4 systems. Entity replication and betrayal-action
+            sync will extend the existing foundation.</p>
+          <div class="status-line">
+            <div class="status-dot status-done"></div>
+            <span class="tag tag-done">Done</span>
+            <span class="system-note">Core sync functional — entity sync pending</span>
+          </div>
+        </div>
+
+        <div class="system-interactions-note reveal">
+          <p>
+            <strong style="color:var(--accent-gold)">Design note:</strong>&nbsp;
+            This game deliberately avoids requiring complex combat systems, expensive cinematic assets,
+            or high-variety AI. The atmosphere is generated through interaction traces, decal systems,
+            state-driven lighting, environmental audio scripting, and object placement. Strong
+            atmosphere at manageable scope.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ROADMAP
+  ═══════════════════════════════════════════ -->
+  <section id="roadmap">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 04 — Development Roadmap</span>
+        <h2>Path Through the Backrooms</h2>
+        <p>
+          Six phases, ordered by dependency. Each phase has exit criteria that must be satisfied before
+          the next begins. Current status is shown below. The project is mid-Phase 1 — the vertical
+          slice is the immediate target.
+        </p>
+      </div>
+
+      <!-- ── Current Status Table ── -->
+      <div class="reveal">
+        <span class="section-label" style="display:block; margin-bottom:1rem;">Current System Status</span>
+        <table class="roadmap-status-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="done">
+              <td><span class="system-name">Task System</span></td>
+              <td><span class="tag tag-done">Done</span></td>
+              <td class="system-note">Simple framework in place</td>
+            </tr>
+            <tr data-status="done">
+              <td><span class="system-name">Sanity Mechanics</span></td>
+              <td><span class="tag tag-done">Done</span></td>
+              <td class="system-note">Needs balancing pass later</td>
+            </tr>
+            <tr data-status="done">
+              <td><span class="system-name">Basic Replication</span></td>
+              <td><span class="tag tag-done">Done</span></td>
+              <td class="system-note">Core multiplayer sync working</td>
+            </tr>
+            <tr data-status="done">
+              <td><span class="system-name">Level Design</span></td>
+              <td><span class="tag tag-done">Done</span></td>
+              <td class="system-note">Near-complete — excluded from active scope</td>
+            </tr>
+            <tr data-status="active">
+              <td><span class="system-name">Core Loop Flow</span></td>
+              <td>
+                <div style="display:flex;align-items:center;gap:.5rem;">
+                  <div class="status-dot status-active"></div>
+                  <span class="tag tag-active">In Progress</span>
+                </div>
+              </td>
+              <td class="system-note">Connecting all systems into one session loop</td>
+            </tr>
+            <tr data-status="pending">
+              <td><span class="system-name">Environmental Instability</span></td>
+              <td><span class="tag tag-pending">Not Started</span></td>
+              <td class="system-note">Major next gameplay pillar — Phase 2</td>
+            </tr>
+            <tr data-status="pending">
+              <td><span class="system-name">Entity Pressure Scaling</span></td>
+              <td><span class="tag tag-pending">Not Started</span></td>
+              <td class="system-note">Must react to entropy — Phase 4</td>
+            </tr>
+            <tr data-status="pending">
+              <td><span class="system-name">Betrayal Mechanics</span></td>
+              <td><span class="tag tag-pending">Not Started</span></td>
+              <td class="system-note">Plausible-deniability design — Phase 3</td>
+            </tr>
+            <tr data-status="pending">
+              <td><span class="system-name">Session Progression</span></td>
+              <td><span class="tag tag-pending">Not Started</span></td>
+              <td class="system-note">Run structure &amp; extraction — Phase 5</td>
+            </tr>
+            <tr data-status="pending">
+              <td><span class="system-name">Polish &amp; Readability</span></td>
+              <td><span class="tag tag-pending">Not Started</span></td>
+              <td class="system-note">Final tuning pass — Phase 6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Diagram C: Roadmap Timeline ── -->
+      <div class="reveal">
+        <span class="section-label" style="display:block; margin: 3rem 0 1rem;">Diagram C — Phase Progress Overview</span>
+        <div class="roadmap-timeline">
+
+          <div class="timeline-cell">
+            <div class="tc-label">Phase 1</div>
+            <div class="tc-title">Core Loop Lock-In</div>
+            <div class="tc-bar-wrap">
+              <div class="tc-bar" data-width="65%" style="background:linear-gradient(90deg,#4ab870,#30b8b0);"></div>
+            </div>
+            <span class="tag tag-active" style="font-size:.65rem;">In Progress</span>
+            <ul class="tc-items" style="margin-top:.9rem;">
+              <li class="done">Task system baseline</li>
+              <li class="done">Sanity mechanics</li>
+              <li class="done">Basic replication</li>
+              <li>Complete session arc</li>
+              <li>Failure states clear</li>
+            </ul>
+          </div>
+
+          <div class="timeline-cell">
+            <div class="tc-label">Phase 2</div>
+            <div class="tc-title">Environmental Instability</div>
+            <div class="tc-bar-wrap">
+              <div class="tc-bar" data-width="0%" style="background:linear-gradient(90deg,#f0a030,#e6be50);"></div>
+            </div>
+            <span class="tag tag-pending" style="font-size:.65rem;">Not Started</span>
+            <ul class="tc-items" style="margin-top:.9rem;">
+              <li>Entropy model</li>
+              <li>Visual degradation</li>
+              <li>Audio degradation</li>
+              <li>Object displacement</li>
+              <li>Stabilization rewards</li>
+            </ul>
+          </div>
+
+          <div class="timeline-cell">
+            <div class="tc-label">Phase 3</div>
+            <div class="tc-title">Betrayal &amp; Paranoia</div>
+            <div class="tc-bar-wrap">
+              <div class="tc-bar" data-width="0%" style="background:linear-gradient(90deg,#c94040,#f0a030);"></div>
+            </div>
+            <span class="tag tag-pending" style="font-size:.65rem;">Not Started</span>
+            <ul class="tc-items" style="margin-top:.9rem;">
+              <li>Sabotage interactions</li>
+              <li>Deniability design</li>
+              <li>Emergent suspicion</li>
+              <li>Ambiguous failure overlap</li>
+            </ul>
+          </div>
+
+          <div class="timeline-cell">
+            <div class="tc-label">Phase 4</div>
+            <div class="tc-title">Entity Pressure</div>
+            <div class="tc-bar-wrap">
+              <div class="tc-bar" data-width="0%" style="background:linear-gradient(90deg,#8b2020,#c94040);"></div>
+            </div>
+            <span class="tag tag-pending" style="font-size:.65rem;">Not Started</span>
+            <ul class="tc-items" style="margin-top:.9rem;">
+              <li>Entropy-tied spawning</li>
+              <li>Escalation thresholds</li>
+              <li>Aggression scaling</li>
+              <li>Environmental manifestations</li>
+            </ul>
+          </div>
+
+          <div class="timeline-cell">
+            <div class="tc-label">Phase 5–6</div>
+            <div class="tc-title">Progression &amp; Polish</div>
+            <div class="tc-bar-wrap">
+              <div class="tc-bar" data-width="0%" style="background:linear-gradient(90deg,#2090a0,#30b8b0);"></div>
+            </div>
+            <span class="tag tag-pending" style="font-size:.65rem;">Not Started</span>
+            <ul class="tc-items" style="margin-top:.9rem;">
+              <li>Session run structure</li>
+              <li>Objective rotation</li>
+              <li>UI readability</li>
+              <li>Sound &amp; lighting polish</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Phase Detail Cards ── -->
+      <div class="phases-grid reveal">
+
+        <div class="phase-card phase-active">
+          <div class="phase-number-col">
+            <div class="phase-number">1</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Core Loop Lock-In</h3>
+            <div class="phase-goal">Goal: One complete, playable session arc</div>
+            <p>The current development priority. All existing systems — task framework, sanity, replication —
+              must be connected into a single coherent session flow with clear start, escalation, and end
+              conditions.</p>
+            <ul class="phase-checklist">
+              <li class="done">Task system framework</li>
+              <li class="done">Sanity mechanics</li>
+              <li class="done">Basic multiplayer replication</li>
+              <li>Complete session flow (explore → stabilize → escalate → exit)</li>
+              <li>Failure states defined and readable</li>
+              <li>Instability meaningfully affects gameplay, not just visuals</li>
+              <li>Multiplayer test: all systems run in sync</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>A session can begin, progress, escalate, and end cleanly. Players understand what to do without
+                heavy UI guidance. Instability changes gameplay, not just aesthetics.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-next">
+          <div class="phase-number-col">
+            <div class="phase-number">2</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Environmental Instability System</h3>
+            <div class="phase-goal">Goal: The Backrooms itself becomes the antagonist</div>
+            <p>Build the sector entropy model and its environmental consequences. Instability must be
+              readable, escalating, and mechanically consequential — not merely decorative.</p>
+            <ul class="phase-checklist">
+              <li>Sector stability/entropy model</li>
+              <li>Visual degradation states (lighting, geometry, decals)</li>
+              <li>Audio degradation states (buzzing, distortion, silence)</li>
+              <li>Geometry/layout corruption triggers</li>
+              <li>Object displacement and missing-object events</li>
+              <li>Symmetry/order detection and correction tasks</li>
+              <li>Stabilization rewards and temporary safety windows</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>Players can detect unstable sectors. Stabilization visibly improves the environment.
+                Instability escalates over time in a readable, atmospheric way.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-future">
+          <div class="phase-number-col">
+            <div class="phase-number">3</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Betrayal &amp; Social Paranoia</h3>
+            <div class="phase-goal">Goal: Plausible-deniability sabotage as emergent gameplay</div>
+            <p>Introduce actions that can intentionally or accidentally destabilize sectors. The game must
+              make sabotage feel believable inside the fiction — ambiguous enough that players can never be
+              fully certain.</p>
+            <ul class="phase-checklist">
+              <li>Intentional destabilization interactions</li>
+              <li>Hidden and ambiguous sabotage mechanics</li>
+              <li>Accidental vs. intentional failure overlap</li>
+              <li>Emergent suspicion without accusation UI</li>
+              <li>Social tension generated by system design alone</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>Players can meaningfully interfere. Sabotage feels plausible within the fiction.
+                The game generates suspicion naturally without prompting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-future">
+          <div class="phase-number-col">
+            <div class="phase-number">4</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Entity Pressure &amp; Threat Scaling</h3>
+            <div class="phase-goal">Goal: Entities as consequences of instability</div>
+            <p>Entities must feel like manifestations of entropy — not independent monsters. Threat should
+              escalate predictably based on sector state while remaining atmospherically unpredictable
+              in moment-to-moment behavior.</p>
+            <ul class="phase-checklist">
+              <li>Entity behavior driven by entropy values</li>
+              <li>Escalation thresholds and spawn frequency</li>
+              <li>Aggression scaling with corruption</li>
+              <li>Environmental manifestation precursors</li>
+              <li>Tertium Quid behavior design</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>Entities feel like consequences of instability. Threat ramps predictably but still
+                feels unpredictable. Environment and entities reinforce each other atmospherically.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-future">
+          <div class="phase-number-col">
+            <div class="phase-number">5</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Progression, Objectives &amp; Session Structure</h3>
+            <div class="phase-goal">Goal: Structured, replayable run architecture</div>
+            <p>Formalize the session arc with objective variety, sector-based progression, resource scarcity
+              tuning, and clearly defined win/lose conditions that make each run feel distinct.</p>
+            <ul class="phase-checklist">
+              <li>Objective rotation system</li>
+              <li>Sector-based progression</li>
+              <li>Resource scarcity tuning</li>
+              <li>Temporary safe-zone logic</li>
+              <li>Win/lose/end conditions</li>
+              <li>Difficulty curve across sessions</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>Runs have a clear arc. Players make strategic choices about what to stabilize.
+                Replays feel different through objective and instability variation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-future">
+          <div class="phase-number-col">
+            <div class="phase-number">6</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-content">
+            <h3>Polish, Feedback &amp; Readability</h3>
+            <div class="phase-goal">Goal: Tense, satisfying, and understandable</div>
+            <p>Final tuning pass across all systems. The experience must be readable — players should
+              always understand the state of the run — while remaining atmospheric and tense throughout.</p>
+            <ul class="phase-checklist">
+              <li>Lighting feedback for stability changes</li>
+              <li>Sound cues for instability and sabotage</li>
+              <li>UI for tasks, sanity, and sector state</li>
+              <li>Player feedback for stabilization success/failure</li>
+              <li>Onboarding for core systems</li>
+              <li>Sanity balancing pass</li>
+            </ul>
+            <div class="phase-exit">
+              <div class="phase-exit-label">Exit Criteria</div>
+              <p>Players always know the state of the run. The game feels tense without confusion.
+                Stabilization is emotionally rewarding, not mechanically opaque.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       VISUAL DIRECTION
+  ═══════════════════════════════════════════ -->
+  <section id="visual">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 05 — Visual Direction</span>
+        <h2>The Aesthetics of Wrong</h2>
+        <p>
+          Visual design is not decoration in Backrooms: Betrayal. It is the primary communication channel
+          between the game state and the player. Instability is visible before it is mechanically consequential.
+          Stability is a reward the player can see and feel.
+        </p>
+      </div>
+
+      <div class="visual-grid">
+
+        <div class="visual-card reveal">
+          <h3>Instability Visual Language</h3>
+          <p style="font-size:.9rem; margin-bottom:1rem;">
+            Environmental degradation signals are layered: early instability introduces subtle wrongness
+            (slightly misaligned objects, faint flicker), while advanced instability breaks visual
+            coherence entirely.
+          </p>
+          <ul style="list-style:none; display:grid; gap:.4rem;">
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Spreading grime and staining</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Flickering and failing fluorescent lights</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Peeling wallpaper and exposed infrastructure</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Stretched and distorted geometry</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Clutter accumulation and object displacement</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-red)">→</span> Asymmetric room arrangements</li>
+          </ul>
+        </div>
+
+        <div class="visual-card reveal">
+          <h3>Stabilization Visual Reward</h3>
+          <p style="font-size:.9rem; margin-bottom:1rem;">
+            Stabilization should feel visually and emotionally rewarding. Players need to see the
+            environment respond to their work. The before/after contrast is the primary feedback loop.
+          </p>
+          <ul style="list-style:none; display:grid; gap:.4rem;">
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Lighting restores and stabilises</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Geometry corrects and symmetry returns</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Stains and grime recede</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Ambient noise reduces</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Environmental calm settles briefly</li>
+            <li style="font-size:.85rem; color:var(--text-secondary); display:flex; gap:.5rem;"><span style="color:var(--accent-green)">→</span> Objects return to correct positions</li>
+          </ul>
+        </div>
+
+        <div class="visual-card reveal">
+          <h3>Environmental State Contrast</h3>
+          <div class="state-comparison">
+            <div class="state-col unstable">
+              <div class="state-col-label">Unstable</div>
+              <ul>
+                <li>Flickering lights</li>
+                <li>Asymmetric layout</li>
+                <li>Missing objects</li>
+                <li>Spreading stains</li>
+                <li>Distorted audio</li>
+                <li>Geometry shifts</li>
+              </ul>
+            </div>
+            <div class="state-col stable">
+              <div class="state-col-label">Stabilized</div>
+              <ul>
+                <li>Steady lighting</li>
+                <li>Correct symmetry</li>
+                <li>Objects in place</li>
+                <li>Clean surfaces</li>
+                <li>Reduced noise</li>
+                <li>Consistent geometry</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-card reveal">
+          <h3>Colour Palette Direction</h3>
+          <p style="font-size:.9rem; margin-bottom:1rem;">
+            The visual palette should reinforce the liminal aesthetic: institutional yellows and greens,
+            dead whites, deep shadow, and the amber warmth of failing fluorescent light.
+          </p>
+          <div class="visual-swatches">
+            <div class="swatch"><div class="swatch-dot" style="background:#f0e8c0;"></div> Fluorescent White</div>
+            <div class="swatch"><div class="swatch-dot" style="background:#c8b87a;"></div> Institutional Yellow</div>
+            <div class="swatch"><div class="swatch-dot" style="background:#8a9a70;"></div> Faded Institutional Green</div>
+            <div class="swatch"><div class="swatch-dot" style="background:#4a4030;"></div> Deep Shadow Brown</div>
+            <div class="swatch"><div class="swatch-dot" style="background:#1a1814;"></div> Near-Black Void</div>
+            <div class="swatch"><div class="swatch-dot" style="background:#803020;"></div> Corruption Red</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DESIGN PHILOSOPHY
+  ═══════════════════════════════════════════ -->
+  <section id="philosophy">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Section 06 — Design Philosophy &amp; Emotional Target</span>
+        <h2>Barely Holding Reality Together</h2>
+      </div>
+
+      <div class="philosophy-layout">
+
+        <div class="reveal">
+          <blockquote class="philosophy-quote">
+            "We are <em>barely holding reality together</em> long enough to survive."
+          </blockquote>
+          <p style="margin-bottom: 1.5rem;">
+            This is the exact emotional fantasy the game is designed to deliver. Not power. Not mastery.
+            Desperate, collaborative competence against an entropy that cannot be stopped — only delayed,
+            sector by sector, minute by minute.
+          </p>
+          <p style="margin-bottom: 1.5rem;">
+            The Backrooms should feel like a place that does not want to be stable. Players are the immune
+            system. The environment is the infection. And somewhere in the team, there may be a carrier.
+          </p>
+          <p>
+            The ideal Backrooms: Betrayal session ends with players not entirely sure whether they lost
+            to the environment, to each other, or to their own decisions under pressure. That ambiguity
+            is the product.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <ul class="principles-list">
+            <li>
+              <span class="principle-num">01</span>
+              <div class="principle-body">
+                <strong>The environment is the antagonist</strong>
+                <p>Entities, social tension, and mechanical pressure are all expressions of a single
+                  underlying system: entropy. There is no external villain. The Backrooms itself is
+                  the threat.</p>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num">02</span>
+              <div class="principle-body">
+                <strong>Atmosphere through systems, not assets</strong>
+                <p>The game's horror derives from interaction traces, state-driven lighting, environmental
+                  scripting, and sound design — not from expensive cinematic content or complex AI.</p>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num">03</span>
+              <div class="principle-body">
+                <strong>Plausible deniability is the social mechanic</strong>
+                <p>There is no accusation UI. There is no betrayal meter. Suspicion is emergent because
+                  the design ensures every failure has a plausible innocent explanation.</p>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num">04</span>
+              <div class="principle-body">
+                <strong>Stabilization is the reward, not the task</strong>
+                <p>Players should feel the environment respond to their work. The before/after contrast
+                  of a stabilized sector is the game's primary emotional payoff.</p>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num">05</span>
+              <div class="principle-body">
+                <strong>Entropy never fully resets</strong>
+                <p>Players buy time. They do not achieve permanent safety. This keeps tension constant
+                  and ensures every stabilization is meaningful precisely because it is temporary.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Emotional Target block -->
+      <div class="reveal" style="margin-top: 4rem;">
+        <span class="section-label" style="display:block; margin-bottom:1.5rem;">Emotional Target — What Players Should Feel</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem;">
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">😰</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Tension</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">Constant low-grade dread with periodic spikes</div>
+          </div>
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">🫥</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Vulnerability</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">The environment is bigger and smarter than the player</div>
+          </div>
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">🔧</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Responsibility</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">If you don't stabilize this, it collapses on everyone</div>
+          </div>
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">👁️</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Paranoia</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">Was that an accident? Or is someone working against us?</div>
+          </div>
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">😮‍💨</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Temporary Relief</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">Stabilization feels earned precisely because it doesn't last</div>
+          </div>
+          <div class="glass-card" style="text-align:center; padding: 1.5rem 1rem;">
+            <div style="font-size:1.6rem; margin-bottom:.6rem;">🌑</div>
+            <div style="font-family:var(--font-display); font-size:.9rem; color:var(--text-primary); margin-bottom:.4rem;">Dread</div>
+            <div style="font-size:.8rem; color:var(--text-muted);">The inevitable return of decay, now closer than before</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <p>
+        <strong>Backrooms: Betrayal</strong> — Game Design Document v0.4&nbsp;&nbsp;·&nbsp;&nbsp;
+        Internal Reference Only&nbsp;&nbsp;·&nbsp;&nbsp;
+        Phase 1 Active&nbsp;&nbsp;·&nbsp;&nbsp;
+        <span style="opacity:.5;">Reality Integrity: 68%</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
