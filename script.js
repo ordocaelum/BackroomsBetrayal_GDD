@@ -107,4 +107,26 @@
     });
   });
 
+  /* ── Top-down sector route emphasis ── */
+  const topdownRoutes = Array.from(document.querySelectorAll('.td-route-cycle'));
+  if (topdownRoutes.length) {
+    let routeIndex = 0;
+    topdownRoutes[0].classList.add('is-active');
+    setInterval(() => {
+      topdownRoutes[routeIndex].classList.remove('is-active');
+      routeIndex = (routeIndex + 1) % topdownRoutes.length;
+      topdownRoutes[routeIndex].classList.add('is-active');
+    }, 2200);
+  }
+
+  /* ── Subtle sector flicker ── */
+  const flickerEls = document.querySelectorAll('.td-flicker');
+  if (flickerEls.length) {
+    setInterval(() => {
+      flickerEls.forEach(el => {
+        el.style.opacity = (0.65 + Math.random() * 0.3).toFixed(2);
+      });
+    }, 1300);
+  }
+
 })();

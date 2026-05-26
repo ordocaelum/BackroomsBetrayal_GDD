@@ -404,7 +404,9 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 .loop-connector-line {
   width: 2px;
   height: 28px;
-  background: linear-gradient(180deg, var(--border-subtle), var(--border-accent));
+  background: linear-gradient(180deg, var(--border-subtle), var(--border-accent), var(--border-subtle));
+  background-size: 100% 200%;
+  animation: loopFlow 3.2s linear infinite;
 }
 .loop-connector-arrow {
   width: 0;
@@ -414,6 +416,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   border-top: 7px solid;
   border-top-color: var(--border-accent);
   opacity: 0.6;
+  animation: loopArrowDrift 1.9s ease-in-out infinite;
 }
 
 .loop-cycle-badge {
@@ -431,6 +434,16 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   color: var(--accent-gold);
   text-transform: uppercase;
   opacity: 0.8;
+}
+
+@keyframes loopFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
+@keyframes loopArrowDrift {
+  0%, 100% { transform: translateY(0); opacity: 0.45; }
+  50% { transform: translateY(3px); opacity: 0.9; }
 }
 
 /* ---------- Entropy Pressure Diagram ---------- */
@@ -494,6 +507,165 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   font-size: 0.72rem;
   color: var(--text-muted);
   text-align: right;
+}
+
+/* ---------- Top-Down Sector Diagram ---------- */
+.topdown-diagram {
+  margin: 3rem auto 0;
+  max-width: 920px;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at 30% 22%, rgba(48,184,176,0.08), transparent 48%), var(--bg-card);
+}
+
+.topdown-caption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: -0.8rem 0 1.2rem;
+  max-width: 100%;
+}
+
+.topdown-canvas-wrap {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(10,11,14,0.9), rgba(7,8,10,0.96));
+  overflow: hidden;
+}
+
+.topdown-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.td-sector-shell {
+  fill: rgba(9,10,12,0.88);
+  stroke: rgba(230,190,80,0.24);
+  stroke-width: 2;
+}
+
+.td-sector {
+  fill: rgba(255,255,255,0.02);
+  stroke: rgba(255,255,255,0.12);
+  stroke-width: 1.5;
+}
+
+.td-route {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 9 11;
+  opacity: 0.7;
+  animation: tdRouteMove 5.5s linear infinite;
+}
+.td-route-main { stroke: url(#tdRouteMain); }
+.td-route-objective { stroke: rgba(48,184,176,0.78); }
+.td-route-escape { stroke: rgba(74,184,112,0.82); }
+.td-route-deeper { stroke: rgba(230,190,80,0.82); }
+.td-route-sabotage { stroke: rgba(201,64,64,0.82); stroke-dasharray: 4 7; }
+.td-route.is-active { stroke-width: 6.5; opacity: 1; }
+
+.td-entropy-spread {
+  fill: url(#tdEntropy);
+  stroke: rgba(201,64,64,0.65);
+  stroke-width: 1.5;
+}
+
+.td-entropy-pulse {
+  fill: rgba(201,64,64,0.08);
+  stroke: rgba(201,64,64,0.36);
+  stroke-width: 1.2;
+  animation: tdPulse 3.8s ease-in-out infinite;
+}
+.td-entropy-pulse-2 { animation-delay: 1.3s; }
+
+.td-zone {
+  fill: rgba(74,184,112,0.08);
+  stroke: rgba(74,184,112,0.7);
+  stroke-width: 2;
+  animation: tdZonePulse 3.1s ease-in-out infinite;
+}
+.td-zone-b { animation-delay: 1.4s; }
+
+.td-node circle {
+  stroke-width: 2;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.td-node text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--text-secondary);
+}
+.td-player circle { fill: rgba(48,184,176,0.18); stroke: rgba(48,184,176,0.9); }
+.td-task circle { fill: rgba(230,190,80,0.14); stroke: rgba(230,190,80,0.9); }
+.td-entity circle { fill: rgba(201,64,64,0.16); stroke: rgba(201,64,64,0.92); }
+
+.td-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.td-label-escape { fill: var(--accent-green); }
+.td-label-deeper { fill: var(--accent-gold); }
+.td-label-sabotage { fill: var(--accent-red); }
+
+.topdown-legend {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.topdown-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topdown-legend-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.lg-player { color: var(--accent-teal); }
+.lg-instability { color: var(--accent-red); }
+.lg-task { color: var(--accent-gold); }
+.lg-zone { color: var(--accent-green); }
+.lg-entity { color: #d34f4f; }
+.lg-sabotage { color: #b94545; }
+.lg-route { color: #89a9ac; }
+
+@keyframes tdRouteMove {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -80; }
+}
+
+@keyframes tdPulse {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.08); opacity: 0.95; }
+}
+
+@keyframes tdZonePulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.95; }
 }
 
 /* ---------- Pillars ---------- */
@@ -795,9 +967,13 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 @media (max-width: 760px) {
   .roadmap-timeline { grid-template-columns: 1fr 1fr; }
   .timeline-cell { padding: 1.2rem 0.9rem; }
+  .topdown-diagram { padding: 1.2rem; }
+  .topdown-caption { font-size: 0.82rem; }
 }
 @media (max-width: 480px) {
   .roadmap-timeline { grid-template-columns: 1fr; }
+  .topdown-legend { gap: 0.45rem; }
+  .topdown-legend-item { font-size: 0.61rem; padding: 0.3rem 0.55rem; }
 }
 
 /* ---------- Visual Direction ---------- */

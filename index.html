@@ -293,6 +293,90 @@
         </div>
       </div>
 
+      <!-- ── Diagram D: Top-Down Sector Gameplay Model ── -->
+      <div class="topdown-diagram reveal">
+        <div class="entropy-title">Diagram D — Top-Down Sector Gameplay Model</div>
+        <p class="topdown-caption">
+          A simplified bird's-eye sector pass: players rotate between objectives while entropy spreads, stabilization
+          zones open temporary safety, entity pressure closes in, sabotage vectors create distrust, and the team chooses
+          escape or deeper descent.
+        </p>
+
+        <div class="topdown-canvas-wrap">
+          <svg class="topdown-canvas" viewBox="0 0 960 560" role="img" aria-label="Top-down gameplay sector diagram with objectives, instability spread, sabotage vectors, and route choices.">
+            <defs>
+              <linearGradient id="tdRouteMain" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#30b8b0"/>
+                <stop offset="100%" stop-color="#e6be50"/>
+              </linearGradient>
+              <linearGradient id="tdEntropy" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c94040" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#8b2020" stop-opacity="0.05"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="34" y="32" width="892" height="496" rx="26" class="td-sector-shell"/>
+            <rect x="90" y="94" width="260" height="160" rx="18" class="td-sector td-sector-a"/>
+            <rect x="372" y="94" width="258" height="160" rx="18" class="td-sector td-sector-b"/>
+            <rect x="652" y="94" width="214" height="160" rx="18" class="td-sector td-sector-c"/>
+            <rect x="190" y="288" width="302" height="188" rx="20" class="td-sector td-sector-d"/>
+            <rect x="518" y="288" width="308" height="188" rx="20" class="td-sector td-sector-e"/>
+
+            <path class="td-route td-route-main td-route-cycle" d="M224 174 L500 174 L500 382 L672 382"/>
+            <path class="td-route td-route-objective td-route-cycle" d="M286 382 L286 214 L500 214"/>
+            <path class="td-route td-route-escape td-route-cycle" d="M672 382 L848 382 L882 334"/>
+            <path class="td-route td-route-deeper td-route-cycle" d="M672 382 L840 450 L906 492"/>
+            <path class="td-route td-route-sabotage td-route-cycle" d="M404 332 L612 214 L762 174"/>
+
+            <path class="td-entropy-spread td-flicker" d="M124 120 C220 84, 294 134, 334 212 C360 270, 308 360, 214 420 C170 450, 116 436, 84 386 C42 316, 46 212, 124 120 Z"/>
+            <circle class="td-entropy-pulse" cx="236" cy="254" r="46"/>
+            <circle class="td-entropy-pulse td-entropy-pulse-2" cx="194" cy="316" r="32"/>
+
+            <circle class="td-zone td-zone-a" cx="500" cy="214" r="42"/>
+            <circle class="td-zone td-zone-b" cx="672" cy="382" r="48"/>
+
+            <g class="td-node td-player" transform="translate(452 188)">
+              <circle r="13"/>
+              <text x="0" y="35">Player A</text>
+            </g>
+            <g class="td-node td-player" transform="translate(548 242)">
+              <circle r="13"/>
+              <text x="0" y="35">Player B</text>
+            </g>
+            <g class="td-node td-task" transform="translate(286 214)">
+              <circle r="11"/>
+              <text x="0" y="31">Task Cluster</text>
+            </g>
+            <g class="td-node td-task" transform="translate(404 332)">
+              <circle r="11"/>
+              <text x="0" y="31">Anchor Reset</text>
+            </g>
+            <g class="td-node td-task" transform="translate(742 404)">
+              <circle r="11"/>
+              <text x="0" y="31">Exit Relay</text>
+            </g>
+            <g class="td-node td-entity" transform="translate(762 174)">
+              <circle r="13"/>
+              <text x="0" y="35">Entity Pressure</text>
+            </g>
+
+            <text class="td-label td-label-escape" x="848" y="322">Escape Route</text>
+            <text class="td-label td-label-deeper" x="836" y="510">Deeper Route</text>
+            <text class="td-label td-label-sabotage" x="632" y="150">Sabotage Vector</text>
+          </svg>
+        </div>
+
+        <div class="topdown-legend">
+          <span class="topdown-legend-item lg-player">Players</span>
+          <span class="topdown-legend-item lg-instability">Instability Spread</span>
+          <span class="topdown-legend-item lg-task">Objectives / Tasks</span>
+          <span class="topdown-legend-item lg-zone">Stabilization Zones</span>
+          <span class="topdown-legend-item lg-entity">Entity Pressure</span>
+          <span class="topdown-legend-item lg-sabotage">Betrayal / Sabotage</span>
+          <span class="topdown-legend-item lg-route">Escape / Deeper Routes</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
