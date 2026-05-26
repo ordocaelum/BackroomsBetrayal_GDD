@@ -293,87 +293,77 @@
         </div>
       </div>
 
-      <!-- ── Diagram D: Top-Down Sector Gameplay Model ── -->
+      <!-- ── Diagram D: Top-Down Sector Gameplay Topology ── -->
       <div class="topdown-diagram reveal">
-        <div class="entropy-title">Diagram D — Top-Down Sector Gameplay Model</div>
+        <div class="entropy-title">Diagram D — Sector Gameplay Topology</div>
         <p class="topdown-caption">
-          A simplified bird's-eye sector pass: players rotate between objectives while entropy spreads, stabilization
-          zones open temporary safety, entity pressure closes in, sabotage vectors create distrust, and the team chooses
-          escape or deeper descent.
+          Simplified overhead schematic: players converge on one stabilization objective, contain instability spread,
+          move through the stabilized zone, then commit to an exit/deeper route while a subtle sabotage vector threatens
+          the run.
         </p>
 
         <div class="topdown-canvas-wrap">
-          <svg class="topdown-canvas" viewBox="0 0 960 560" role="img" aria-label="Top-down gameplay sector diagram with objectives, instability spread, sabotage vectors, and route choices.">
+          <svg class="topdown-canvas" viewBox="0 0 960 560" role="img" aria-label="Concise top-down sector schematic showing players, objective, instability spread, stabilized zone, exit/deeper route, and sabotage vector.">
             <defs>
-              <linearGradient id="tdRouteMain" x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient id="tdRoutePrimary" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#30b8b0"/>
                 <stop offset="100%" stop-color="#e6be50"/>
               </linearGradient>
-              <linearGradient id="tdEntropy" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#c94040" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#8b2020" stop-opacity="0.05"/>
+              <linearGradient id="tdInstability" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c94040" stop-opacity="0.52"/>
+                <stop offset="100%" stop-color="#8b2020" stop-opacity="0.06"/>
               </linearGradient>
+              <linearGradient id="tdZone" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4ab870" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#30b8b0" stop-opacity="0.05"/>
+              </linearGradient>
+              <marker id="tdArrow" viewBox="0 0 10 10" refX="7.6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+              </marker>
             </defs>
 
             <rect x="34" y="32" width="892" height="496" rx="26" class="td-sector-shell"/>
-            <rect x="90" y="94" width="260" height="160" rx="18" class="td-sector td-sector-a"/>
-            <rect x="372" y="94" width="258" height="160" rx="18" class="td-sector td-sector-b"/>
-            <rect x="652" y="94" width="214" height="160" rx="18" class="td-sector td-sector-c"/>
-            <rect x="190" y="288" width="302" height="188" rx="20" class="td-sector td-sector-d"/>
-            <rect x="518" y="288" width="308" height="188" rx="20" class="td-sector td-sector-e"/>
+            <rect x="118" y="106" width="312" height="350" rx="22" class="td-sector"/>
+            <rect x="446" y="106" width="222" height="350" rx="22" class="td-sector td-sector-objective"/>
+            <rect x="684" y="106" width="196" height="350" rx="22" class="td-sector"/>
 
-            <path class="td-route td-route-main td-route-cycle" d="M224 174 L500 174 L500 382 L672 382"/>
-            <path class="td-route td-route-objective td-route-cycle" d="M286 382 L286 214 L500 214"/>
-            <path class="td-route td-route-escape td-route-cycle" d="M672 382 L848 382 L882 334"/>
-            <path class="td-route td-route-deeper td-route-cycle" d="M672 382 L840 450 L906 492"/>
-            <path class="td-route td-route-sabotage td-route-cycle" d="M404 332 L612 214 L762 174"/>
+            <path class="td-instability td-flicker" d="M132 136 C214 94, 316 124, 364 210 C394 264, 350 370, 260 416 C204 442, 152 416, 128 368 C108 314, 102 182, 132 136 Z"/>
+            <circle class="td-instability-pulse" cx="248" cy="250" r="54"/>
+            <path class="td-instability-flow td-focus-step" d="M334 252 C390 236, 432 226, 478 220"/>
 
-            <path class="td-entropy-spread td-flicker" d="M124 120 C220 84, 294 134, 334 212 C360 270, 308 360, 214 420 C170 450, 116 436, 84 386 C42 316, 46 212, 124 120 Z"/>
-            <circle class="td-entropy-pulse" cx="236" cy="254" r="46"/>
-            <circle class="td-entropy-pulse td-entropy-pulse-2" cx="194" cy="316" r="32"/>
+            <ellipse class="td-zone td-focus-step" cx="606" cy="280" rx="126" ry="108"/>
 
-            <circle class="td-zone td-zone-a" cx="500" cy="214" r="42"/>
-            <circle class="td-zone td-zone-b" cx="672" cy="382" r="48"/>
+            <path class="td-route td-route-primary td-focus-step" d="M240 334 C324 302, 388 272, 474 246"/>
+            <path class="td-route td-route-exit td-focus-step" d="M566 250 C660 250, 748 252, 868 252"/>
+            <path class="td-route td-route-sabotage td-focus-step" d="M250 362 C360 430, 468 414, 548 318"/>
 
-            <g class="td-node td-player" transform="translate(452 188)">
-              <circle r="13"/>
-              <text x="0" y="35">Player A</text>
+            <g class="td-node td-player td-focus-step" transform="translate(244 326)">
+              <circle r="14"/>
+              <text x="0" y="36">Player</text>
             </g>
-            <g class="td-node td-player" transform="translate(548 242)">
-              <circle r="13"/>
-              <text x="0" y="35">Player B</text>
+            <g class="td-node td-player td-focus-step" transform="translate(288 360)">
+              <circle r="10"/>
+              <text x="0" y="30">Player</text>
             </g>
-            <g class="td-node td-task" transform="translate(286 214)">
-              <circle r="11"/>
-              <text x="0" y="31">Task Cluster</text>
-            </g>
-            <g class="td-node td-task" transform="translate(404 332)">
-              <circle r="11"/>
-              <text x="0" y="31">Anchor Reset</text>
-            </g>
-            <g class="td-node td-task" transform="translate(742 404)">
-              <circle r="11"/>
-              <text x="0" y="31">Exit Relay</text>
-            </g>
-            <g class="td-node td-entity" transform="translate(762 174)">
-              <circle r="13"/>
-              <text x="0" y="35">Entity Pressure</text>
+            <g class="td-node td-objective td-focus-step" transform="translate(546 250)">
+              <circle r="18"/>
+              <text x="0" y="40">Objective</text>
             </g>
 
-            <text class="td-label td-label-escape" x="848" y="322">Escape Route</text>
-            <text class="td-label td-label-deeper" x="836" y="510">Deeper Route</text>
-            <text class="td-label td-label-sabotage" x="632" y="150">Sabotage Vector</text>
+            <text class="td-label td-label-instability td-focus-step" x="162" y="146">Instability</text>
+            <text class="td-label td-label-zone td-focus-step" x="510" y="388">Stabilized Zone</text>
+            <text class="td-label td-label-exit td-focus-step" x="728" y="236">Exit / Deeper</text>
+            <text class="td-label td-label-sabotage td-focus-step" x="434" y="444">Sabotage</text>
           </svg>
         </div>
 
         <div class="topdown-legend">
-          <span class="topdown-legend-item lg-player">Players</span>
-          <span class="topdown-legend-item lg-instability">Instability Spread</span>
-          <span class="topdown-legend-item lg-task">Objectives / Tasks</span>
-          <span class="topdown-legend-item lg-zone">Stabilization Zones</span>
-          <span class="topdown-legend-item lg-entity">Entity Pressure</span>
-          <span class="topdown-legend-item lg-sabotage">Betrayal / Sabotage</span>
-          <span class="topdown-legend-item lg-route">Escape / Deeper Routes</span>
+          <span class="topdown-legend-item lg-player">Player</span>
+          <span class="topdown-legend-item lg-objective">Objective</span>
+          <span class="topdown-legend-item lg-instability">Instability</span>
+          <span class="topdown-legend-item lg-zone">Stabilized Zone</span>
+          <span class="topdown-legend-item lg-route">Exit / Deeper Route</span>
+          <span class="topdown-legend-item lg-sabotage">Sabotage</span>
         </div>
       </div>
 

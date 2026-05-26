@@ -547,49 +547,73 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 
 .td-sector {
   fill: rgba(255,255,255,0.02);
-  stroke: rgba(255,255,255,0.12);
+  stroke: rgba(255,255,255,0.1);
   stroke-width: 1.5;
 }
+.td-sector-objective { stroke: rgba(230,190,80,0.34); }
 
 .td-route {
   fill: none;
-  stroke-width: 5;
+  stroke-width: 4.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 9 11;
-  opacity: 0.7;
-  animation: tdRouteMove 5.5s linear infinite;
+  marker-end: url(#tdArrow);
+  opacity: 0.82;
+  animation: tdRouteMove 6.2s linear infinite;
 }
-.td-route-main { stroke: url(#tdRouteMain); }
-.td-route-objective { stroke: rgba(48,184,176,0.78); }
-.td-route-escape { stroke: rgba(74,184,112,0.82); }
-.td-route-deeper { stroke: rgba(230,190,80,0.82); }
-.td-route-sabotage { stroke: rgba(201,64,64,0.82); stroke-dasharray: 4 7; }
-.td-route.is-active { stroke-width: 6.5; opacity: 1; }
+.td-route-primary {
+  color: var(--accent-teal);
+  stroke: url(#tdRoutePrimary);
+  stroke-dasharray: 8 10;
+}
+.td-route-exit {
+  color: var(--accent-green);
+  stroke: rgba(74,184,112,0.88);
+  stroke-dasharray: 12 8;
+}
+.td-route-sabotage {
+  color: var(--accent-amber);
+  stroke: rgba(240,160,48,0.72);
+  stroke-width: 3.1;
+  stroke-dasharray: 3 8;
+  opacity: 0.58;
+}
+.td-focus-step.is-active {
+  opacity: 1;
+  filter: drop-shadow(0 0 9px rgba(230,190,80,0.35));
+}
 
-.td-entropy-spread {
-  fill: url(#tdEntropy);
+.td-instability {
+  fill: url(#tdInstability);
   stroke: rgba(201,64,64,0.65);
   stroke-width: 1.5;
   opacity: var(--td-flicker-opacity, 0.82);
   transition: opacity 0.4s ease;
 }
 
-.td-entropy-pulse {
+.td-instability-pulse {
   fill: rgba(201,64,64,0.08);
   stroke: rgba(201,64,64,0.36);
   stroke-width: 1.2;
   animation: tdPulse 3.8s ease-in-out infinite;
 }
-.td-entropy-pulse-2 { animation-delay: 1.3s; }
+.td-instability-flow {
+  fill: none;
+  color: var(--accent-red);
+  stroke: rgba(201,64,64,0.88);
+  stroke-width: 2.4;
+  stroke-dasharray: 4 9;
+  marker-end: url(#tdArrow);
+  animation: tdRouteMove 5.3s linear infinite;
+}
 
 .td-zone {
-  fill: rgba(74,184,112,0.08);
-  stroke: rgba(74,184,112,0.7);
+  fill: url(#tdZone);
+  stroke: rgba(74,184,112,0.75);
   stroke-width: 2;
-  animation: tdZonePulse 3.1s ease-in-out infinite;
+  opacity: 0.7;
+  animation: tdZonePulse 3.5s ease-in-out infinite;
 }
-.td-zone-b { animation-delay: 1.4s; }
 
 .td-node circle {
   stroke-width: 2;
@@ -604,18 +628,24 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   fill: var(--text-secondary);
 }
 .td-player circle { fill: rgba(48,184,176,0.18); stroke: rgba(48,184,176,0.9); }
-.td-task circle { fill: rgba(230,190,80,0.14); stroke: rgba(230,190,80,0.9); }
-.td-entity circle { fill: rgba(201,64,64,0.16); stroke: rgba(201,64,64,0.92); }
+.td-objective circle {
+  fill: rgba(230,190,80,0.2);
+  stroke: rgba(230,190,80,0.95);
+  filter: drop-shadow(0 0 10px rgba(230,190,80,0.45));
+  animation: tdObjectivePulse 2.4s ease-in-out infinite;
+}
 
 .td-label {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  fill: var(--text-secondary);
 }
-.td-label-escape { fill: var(--accent-green); }
-.td-label-deeper { fill: var(--accent-gold); }
-.td-label-sabotage { fill: var(--accent-red); }
+.td-label-instability { fill: var(--accent-red); }
+.td-label-zone { fill: var(--accent-green); }
+.td-label-exit { fill: var(--accent-gold); }
+.td-label-sabotage { fill: var(--accent-amber); opacity: 0.78; }
 
 .topdown-legend {
   margin-top: 1rem;
@@ -648,10 +678,9 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 }
 
 .lg-player { color: var(--accent-teal); }
+.lg-objective { color: var(--accent-gold); }
 .lg-instability { color: var(--accent-red); }
-.lg-task { color: var(--accent-gold); }
 .lg-zone { color: var(--accent-green); }
-.lg-entity { color: var(--accent-red); }
 .lg-sabotage { color: var(--accent-amber); }
 .lg-route { color: #89a9ac; }
 
@@ -663,6 +692,11 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 @keyframes tdPulse {
   0%, 100% { transform: scale(1); opacity: 0.45; }
   50% { transform: scale(1.08); opacity: 0.95; }
+}
+
+@keyframes tdObjectivePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
 @keyframes tdZonePulse {

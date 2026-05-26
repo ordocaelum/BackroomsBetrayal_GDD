@@ -114,16 +114,23 @@
     });
   });
 
-  /* ── Top-down sector route emphasis ── */
-  const topdownRoutes = Array.from(document.querySelectorAll('.td-route-cycle'));
-  if (topdownRoutes.length) {
-    let routeIndex = 0;
-    topdownRoutes[0].classList.add('is-active');
+  /* ── Top-down sector attention order emphasis ── */
+  const topdownFocusSteps = [
+    document.querySelectorAll('.td-player'),
+    document.querySelectorAll('.td-objective'),
+    document.querySelectorAll('.td-instability-flow'),
+    document.querySelectorAll('.td-route-exit'),
+    document.querySelectorAll('.td-route-sabotage')
+  ].filter(step => step.length);
+
+  if (topdownFocusSteps.length) {
+    let focusIndex = 0;
+    topdownFocusSteps[0].forEach(el => el.classList.add('is-active'));
     scheduleInterval(() => {
-      topdownRoutes[routeIndex].classList.remove('is-active');
-      routeIndex = (routeIndex + 1) % topdownRoutes.length;
-      topdownRoutes[routeIndex].classList.add('is-active');
-    }, 2200);
+      topdownFocusSteps[focusIndex].forEach(el => el.classList.remove('is-active'));
+      focusIndex = (focusIndex + 1) % topdownFocusSteps.length;
+      topdownFocusSteps[focusIndex].forEach(el => el.classList.add('is-active'));
+    }, 2400);
   }
 
   /* ── Subtle sector flicker ── */
