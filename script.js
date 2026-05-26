@@ -96,8 +96,7 @@
     });
   });
 
-  /* ── Subtle loop-step counter badge ── */
-  let stepIndex = 0;
+  /* ── Subtle loop-step hover glow ── */
   const loopSteps = document.querySelectorAll('.loop-step');
   loopSteps.forEach(step => {
     step.addEventListener('mouseenter', () => {
