@@ -571,6 +571,8 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   fill: url(#tdEntropy);
   stroke: rgba(201,64,64,0.65);
   stroke-width: 1.5;
+  opacity: var(--td-flicker-opacity, 0.82);
+  transition: opacity 0.4s ease;
 }
 
 .td-entropy-pulse {
@@ -649,8 +651,8 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 .lg-instability { color: var(--accent-red); }
 .lg-task { color: var(--accent-gold); }
 .lg-zone { color: var(--accent-green); }
-.lg-entity { color: #d34f4f; }
-.lg-sabotage { color: #b94545; }
+.lg-entity { color: var(--accent-red); }
+.lg-sabotage { color: var(--accent-amber); }
 .lg-route { color: #89a9ac; }
 
 @keyframes tdRouteMove {

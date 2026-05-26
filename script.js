@@ -2,6 +2,13 @@
 (function () {
   'use strict';
 
+  const intervalHandles = [];
+  const scheduleInterval = (callback, delay) => {
+    const handle = window.setInterval(callback, delay);
+    intervalHandles.push(handle);
+    return handle;
+  };
+
   /* ── Navigation scroll shadow ── */
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
@@ -62,7 +69,7 @@
   /* ── Stability bar live flicker ── */
   const fill = document.querySelector('.stability-fill');
   if (fill) {
-    setInterval(() => {
+    scheduleInterval(() => {
       const base = 55 + Math.random() * 20;
       fill.style.width = base + '%';
     }, 3500);
@@ -112,7 +119,7 @@
   if (topdownRoutes.length) {
     let routeIndex = 0;
     topdownRoutes[0].classList.add('is-active');
-    setInterval(() => {
+    scheduleInterval(() => {
       topdownRoutes[routeIndex].classList.remove('is-active');
       routeIndex = (routeIndex + 1) % topdownRoutes.length;
       topdownRoutes[routeIndex].classList.add('is-active');
@@ -122,11 +129,13 @@
   /* ── Subtle sector flicker ── */
   const flickerEls = document.querySelectorAll('.td-flicker');
   if (flickerEls.length) {
-    setInterval(() => {
-      flickerEls.forEach(el => {
-        el.style.opacity = (0.65 + Math.random() * 0.3).toFixed(2);
-      });
+    scheduleInterval(() => {
+      document.documentElement.style.setProperty('--td-flicker-opacity', (0.65 + Math.random() * 0.3).toFixed(2));
     }, 1300);
   }
+
+  window.addEventListener('beforeunload', () => {
+    intervalHandles.forEach(handle => window.clearInterval(handle));
+  });
 
 })();
